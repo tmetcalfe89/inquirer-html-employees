@@ -1,5 +1,5 @@
-import inquirer from "inquirer";
-import Manager from "../lib/manager.js";
+const inquirer = require("inquirer");
+const Manager = require("../lib/manager");
 
 const managerQuestions = [
   {
@@ -24,7 +24,7 @@ const managerQuestions = [
   },
 ];
 
-export async function make() {
+async function make() {
   const answers = await inquirer.prompt(managerQuestions);
   return new Manager(
     answers.id,
@@ -34,7 +34,7 @@ export async function make() {
   );
 }
 
-export function generateHTML(manager) {
+function generateHTML(manager) {
   return `<div class="card">
     <div class="card-head">
       <div>${manager.getName()}</div>
@@ -47,3 +47,8 @@ export function generateHTML(manager) {
     </div>
   </div>`;
 }
+
+module.exports = {
+  make,
+  generateHTML,
+};

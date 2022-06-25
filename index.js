@@ -1,8 +1,8 @@
-import fs from "fs";
-import inquirer from "inquirer";
-import * as engineer from "./src/engineer.js";
-import * as intern from "./src/intern.js";
-import * as manager from "./src/manager.js";
+const fs = require("fs");
+const inquirer = require("inquirer");
+const engineer = require("./src/engineer");
+const intern = require("./src/intern");
+const manager = require("./src/manager");
 
 const nextEmployeeQuestions = [
   {

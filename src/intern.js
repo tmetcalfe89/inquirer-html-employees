@@ -1,5 +1,5 @@
-import inquirer from "inquirer";
-import Intern from "../lib/intern.js";
+const inquirer = require("inquirer");
+const Intern = require("../lib/intern");
 
 const internQuestions = [
   {
@@ -24,12 +24,12 @@ const internQuestions = [
   },
 ];
 
-export async function make() {
+async function make() {
   const answers = await inquirer.prompt(internQuestions);
   return new Intern(answers.id, answers.name, answers.email, answers.school);
 }
 
-export function generateHTML(intern) {
+function generateHTML(intern) {
   return `<div class="card">
     <div class="card-head">
       <div>${intern.getName()}</div>
@@ -42,3 +42,8 @@ export function generateHTML(intern) {
     </div>
   </div>`;
 }
+
+module.exports = {
+  make,
+  generateHTML,
+};

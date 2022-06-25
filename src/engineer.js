@@ -1,5 +1,5 @@
-import inquirer from "inquirer";
-import Engineer from "../lib/engineer.js";
+const inquirer = require("inquirer");
+const Engineer = require("../lib/engineer");
 
 const engineerQuestions = [
   {
@@ -24,12 +24,12 @@ const engineerQuestions = [
   },
 ];
 
-export async function make() {
+async function make() {
   const answers = await inquirer.prompt(engineerQuestions);
   return new Engineer(answers.id, answers.name, answers.email, answers.github);
 }
 
-export function generateHTML(engineer) {
+function generateHTML(engineer) {
   return `<div class="card">
     <div class="card-head">
       <div>${engineer.getName()}</div>
@@ -42,3 +42,8 @@ export function generateHTML(engineer) {
     </div>
   </div>`;
 }
+
+module.exports = {
+  make,
+  generateHTML,
+};

@@ -7,7 +7,6 @@ To demonstrate how to create a CLI tool to collect information, then output it t
 - Classes (OOP) in JavaScript.
 - CLI input in Node JS.
 - Template literals (template strings) in JavaScript.
-- ES6 modules.
 
 ## Tools
 
@@ -15,4 +14,4 @@ To demonstrate how to create a CLI tool to collect information, then output it t
 
 ## This branch
 
-This branch uses ES6 module implementations, which aren't the default in Node JS.
+This branch uses Common JS module implementations, which are the default in Node JS. In order to do this, I am using v8.x.x of inquirer, as v9.x.x+ uses ES6 module implementations exclusively.
